@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interspeech 2025 Demos</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body class="py-5">
+
+    <main>
+        <div class="container">
+
+            <h1 class="text-center ">Enhancing Zero-Shot
+                Text-to-Speech for Low-Resource Speech Prompts
+                via Test-Time Adaptation</h1>
+            <p class="lead text-center fst-italic">Anonymous Authors</p>
+
+            <h2 class="text-center">Abstract</h2>
+            <p class="text-left">Recent advancements in zero-shot text-to-speech (TTS) have enabled the generation of
+                high-fidelity speech for previously unseen speakers. However, these models often struggle to
+                produce intelligible and natural speech when prompted with reference speech from low-resource languages
+                (e.g., dialects), limiting the accessibility of TTS technology for communities speaking these languages.
+                Moreover, existing TTS methods rely on large datasets and are hindered by long inference
+                times. To address these challenges, we propose a novel <span class="fw-bold">test-time adaptation
+                    (TTA)</span> method with a test-time bottlenecked masked modeling for zero-shot TTS models that can
+                enhance the quality and naturalness of generated speech while maintaining efficient inference speed.
+                Extensive experiments show that our method can improve the naturalness of generated speech when applied
+                to low-resource speech prompts, outperforming existing techniques by a noticeable margin.
+                Demos: <a href="https://lkj73k9d.github.io/demos/">https://lkj73k9d.github.io/demos/.</a>
+            </p>
+
+            <p><img src="images/tta.png" class="img-fluid">
+                Figure 1: <span class="fst-italic">(a) The fine-tuning paradigm performs the same task in the
+                    pre-training stage on a batch of fine-tuning data from the target speaker. (b) The TTA paradigm
+                    performs a different task to learn extra knowledge from the test data.</span>
+            </p>
+
+            <hr />
+
+            <p>This demo page showcases synthesized English speech with and
+                without the proposed test-time adaptation method using eight
+                different Mandarin dialects as speech prompts.
+                We borrowed some text prompts from <a href="https://maskgct.github.io/" target="_blank">MaskGCT</a> and
+                <a href="https://swivid.github.io/F5-TTS/" target="_blank">F5-TTS</a> for the demo.
+                All the reference speech prompts come from the <a href="https://openreview.net/forum?id=b3Zoeq2sCLq"
+                    target="_blank">KeSpeech</a> dataset.
+            </p>
+            <p class="fw-bold">This page is for research demonstration purposes only.</p>
+
+
+            <h3 class="text-center mt-5 mb-4">Beijing dialect to English</h3>
+            <table class="table text-center align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Method</th>
+                        <th scope="col">Text</th>
+                        <th scope="col">Reference</th>
+                        <th scope="col">Generated w/o TTA</th>
+                        <th scope="col">Generated w/ TTA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>F5-TTS</td>
+                        <td>I've been a silent spectator, watching species evolve, empires rise and fall.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Beijing/1000069_0ea71854.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>保证金将作为团社团的公用资金。(The deposit will be used as public funds for the group.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Beijing/1000069_0ea71854_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Beijing/1000069_0ea71854_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>GenerSpeech</td>
+                        <td>Respect me and I'll nurture you; ignore me and you shall face the consequences.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Beijing/1000296_897875ba.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>将京津冀旅游协同发展与扶贫攻坚相合作。(The coordinated development of tourism in Beijing, Tianjin, and Hebei
+                                will align with poverty alleviation efforts.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Beijing/1000296_897875ba_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Beijing/1000296_897875ba_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>StyleTTS</td>
+                        <td>He closed his eyes, expecting that all of this could pass.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Beijing/1000312_cc0bcb87.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>全身心的来一次未来科技的全球之旅。(A global journey into future technology, dedicated wholeheartedly.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Beijing/1000312_cc0bcb87_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Beijing/1000312_cc0bcb87_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>SC-GlowTTS</td>
+                        <td>He wore blue silk stockings, blue knee pants with gold buckles, a blue ruffled waist and a
+                            jacket of bright blue braided with gold.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Beijing/1000857_3bd97698.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>你你的产品仅仅是别的产品的一个功能。(Your product is merely a function of other products.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Beijing/1000857_3bd97698_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Beijing/1000857_3bd97698_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="text-center mt-5 mb-4">Ji-Lu dialect to English</h3>
+            <table class="table text-center align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Method</th>
+                        <th scope="col">Text</th>
+                        <th scope="col">Reference</th>
+                        <th scope="col">Generated w/o TTA</th>
+                        <th scope="col">Generated w/ TTA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>F5-TTS</td>
+                        <td>Superheroes don't always do the thing and struggle with everyday problems like you and me.
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Ji-Lu/1000047_396b5bd0.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>要求操作者具备良好的综合素质。(The operator is required to possess strong comprehensive qualities.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Ji-Lu/1000047_396b5bd0_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Ji-Lu/1000047_396b5bd0_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>GenerSpeech</td>
+                        <td>I will talk about this holiday, the origins of the holiday, some of the food that people
+                            like to eat here on Thanksgiving</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Ji-Lu/1000101_33b7763f.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>嗯其中的中医药院校的直属附属医院六十四个。(There are 64 directly affiliated hospitals under traditional
+                                Chinese medicine colleges.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Ji-Lu/1000101_33b7763f_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Ji-Lu/1000101_33b7763f_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>StyleTTS</td>
+                        <td>That's the difference between you and me morty.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Ji-Lu/1000156_ac43083c.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>为何偏偏对关键部位避而不谈。(Why do you avoid discussing the key aspects?)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Ji-Lu/1000156_ac43083c_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Ji-Lu/1000156_ac43083c_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>SC-GlowTTS</td>
+                        <td>In short, we embarked on a mission to make America great again, for all Americans.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Ji-Lu/1010250_23a7ac15.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>不要亲杀抹杀了孩子的善良。(Don't harm the child yourself and destroy the child's kindness.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Ji-Lu/1010250_23a7ac15_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Ji-Lu/1010250_23a7ac15_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="text-center mt-5 mb-4">Jiang-Huai dialect to English</h3>
+            <table class="table text-center align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Method</th>
+                        <th scope="col">Text</th>
+                        <th scope="col">Reference</th>
+                        <th scope="col">Generated w/o TTA</th>
+                        <th scope="col">Generated w/ TTA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>F5-TTS</td>
+                        <td>At the end of the day, our choices in food reflect our personal preferences and sometimes,
+                            even our lifestyle or belief system.
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiang-Huai/1000057_05494a6a.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>果他就开始不依不饶地对女孩进行辱骂。(Sure enough, he began to relentlessly insult the girl.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiang-Huai/1000057_05494a6a_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiang-Huai/1000057_05494a6a_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>GenerSpeech</td>
+                        <td>He closed his eyes, expecting that all of this could pass.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiang-Huai/1000061_092baaac.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>作为本科生的王毅能做到这一点。(As an undergraduate, Yi Wang is capable of doing this.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiang-Huai/1000061_092baaac_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiang-Huai/1000061_092baaac_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>StyleTTS</td>
+                        <td>However, if you choose to stay, know that the truth I unveil may forever alter the course of
+                            your journey.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiang-Huai/1000138_30574c5c.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>用手捏海参以参体变软为标准。(Use your hands to squeeze the sea cucumber until it softens.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiang-Huai/1000138_30574c5c_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiang-Huai/1000138_30574c5c_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>SC-GlowTTS</td>
+                        <td>Yeah, that's the difference between you and me morty. I never go back to the carpet store.
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiang-Huai/1000157_164ea969.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>格力的空调产品格力的空调产品覆盖了比赛场馆。(Gree’s air conditioning products cover the competition venues.)
+                            </p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiang-Huai/1000157_164ea969_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiang-Huai/1000157_164ea969_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="text-center mt-5 mb-4">Jiao-Liao dialect to English</h3>
+            <table class="table text-center align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Method</th>
+                        <th scope="col">Text</th>
+                        <th scope="col">Reference</th>
+                        <th scope="col">Generated w/o TTA</th>
+                        <th scope="col">Generated w/ TTA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>F5-TTS</td>
+                        <td>Perhaps they are driven by the delicious blend of flavors, or it could be the appealing
+                            visual presentation.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiao-Liao/1000009_00d9c2a8.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>开展国际非物质文化遗产项目。(Carry out international intangible cultural heritage projects.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiao-Liao/1000009_00d9c2a8_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiao-Liao/1000009_00d9c2a8_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>GenerSpeech</td>
+                        <td>In what a disgraceful light might it not strike so vain a man!</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiao-Liao/1000033_9955ff1d.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>基本上一年每个人月薪会减少八百。(Essentially, everyone’s monthly salary will decrease by 800 yuan
+                                annually.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiao-Liao/1000033_9955ff1d_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiao-Liao/1000033_9955ff1d_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>StyleTTS</td>
+                        <td>Your safety and the pack's reputation are at stake.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiao-Liao/1000040_c9d659be.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>可谓达到了其军事生涯的巅峰。(It can be said that he has reached the peak of his military career.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiao-Liao/1000040_c9d659be_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiao-Liao/1000040_c9d659be_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>SC-GlowTTS</td>
+                        <td>Your bravery is admirable, but sometimes bravery is knowing when to retreat.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiao-Liao/1000167_149e6ef4.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>一个边长二十八厘米的蛋糕片就出炉了。(A cake slice with a side length of 28 cm has just come out of the
+                                oven.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiao-Liao/1000167_149e6ef4_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Jiao-Liao/1000167_149e6ef4_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="text-center mt-5 mb-4">Lan-Yin dialect to English</h3>
+            <table class="table text-center align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Method</th>
+                        <th scope="col">Text</th>
+                        <th scope="col">Reference</th>
+                        <th scope="col">Generated w/o TTA</th>
+                        <th scope="col">Generated w/ TTA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>F5-TTS</td>
+                        <td>Artificial intelligence, in its broadest sense, is intelligence exhibited by machines,
+                            particularly computer systems.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Lan-Yin/1000028_05581c7e.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>张锋才刚做起来自己的实验室。(Feng Zhang has just set up his own laboratory.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Lan-Yin/1000028_05581c7e_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Lan-Yin/1000028_05581c7e_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>GenerSpeech</td>
+                        <td>Then I would never talk to that person about boa constrictors, or primeval forests, or
+                            stars.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Lan-Yin/1000125_25456fe5.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>五十万爸妈正在关注的专业教育。(Professional education that 500,000 parents are paying attention to.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Lan-Yin/1000125_25456fe5_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Lan-Yin/1000125_25456fe5_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>StyleTTS</td>
+                        <td>At the end of the day, our choices in food reflect our personal preferences and sometimes,
+                            even our lifestyle or belief system.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Lan-Yin/1000182_071bb89a.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>会带来国内厂商在认识上的改变。(This will lead to a shift in the understanding of domestic
+                                manufacturers.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Lan-Yin/1000182_071bb89a_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Lan-Yin/1000182_071bb89a_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>SC-GlowTTS</td>
+                        <td>Later recounting that quote, it melted in my mouth like raw tuna in a sushi restaurant.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Lan-Yin/1000321_1296529f.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>并且睡眠不足还会造成孩子精神不振。(Lack of sleep will also cause children to feel fatigued.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Lan-Yin/1000321_1296529f_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Lan-Yin/1000321_1296529f_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="text-center mt-5 mb-4">Northeastern dialect to English</h3>
+            <table class="table text-center align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Method</th>
+                        <th scope="col">Text</th>
+                        <th scope="col">Reference</th>
+                        <th scope="col">Generated w/o TTA</th>
+                        <th scope="col">Generated w/ TTA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>F5-TTS</td>
+                        <td>His voice was low and firm, leaving a faint hint of helplessness and tenderness in the air.
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Northeastern/1000199_0c7bd503.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>这样的经营模式无疑是具有竞争力的。(This business model is undoubtedly competitive.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Northeastern/1000199_0c7bd503_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Northeastern/1000199_0c7bd503_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>GenerSpeech</td>
+                        <td>Daring dancers dazzled during dynamic dance displays, drawing delighted crowds.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Northeastern/1000402_3c821f3d.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>大哥呀我家炖的大鹅你过来吃不。(Brother, come to home and try the goose stew.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Northeastern/1000402_3c821f3d_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Northeastern/1000402_3c821f3d_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>StyleTTS</td>
+                        <td>Active artists always appreciate artistic achievements and applaud awesome artworks.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Northeastern/1023073_10ba4c34.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>你小眼睛咔吧咔吧的。(Your little eyes are twinkling.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Northeastern/1023073_10ba4c34_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Northeastern/1023073_10ba4c34_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>SC-GlowTTS</td>
+                        <td>Happy hikers harmoniously hiked through hilly landscapes on heavenly holidays.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Northeastern/1023073_eeeeabbe.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>我的波棱盖都卡秃鲁皮了。(I scraped my knee against the curb.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Northeastern/1023073_eeeeabbe_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Northeastern/1023073_eeeeabbe_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="text-center mt-5 mb-4">Southwestern dialect to English</h3>
+            <table class="table text-center align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Method</th>
+                        <th scope="col">Text</th>
+                        <th scope="col">Reference</th>
+                        <th scope="col">Generated w/o TTA</th>
+                        <th scope="col">Generated w/ TTA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>F5-TTS</td>
+                        <td>Jovial joggers joyfully joined jogging jaunts, justifying joyful jolliness.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Southwestern/1000008_80521e9a.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>其最终带到新加坡的钱只有二千六百万元。(The amount of money he brought to Singapore was only 26 million
+                                yuan.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Southwestern/1000008_80521e9a_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Southwestern/1000008_80521e9a_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>GenerSpeech</td>
+                        <td>I had no clue what to write even for the first letter of the alphabet.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Southwestern/1000075_4cf17adc.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>要想长时间集中他们的注意力。(To maintain their attention for an extended period.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Southwestern/1000075_4cf17adc_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Southwestern/1000075_4cf17adc_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>StyleTTS</td>
+                        <td>I guess I'll be little less nervous to begin whatever comes next.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Southwestern/1021035_23c9bd5b.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>并不断地伸手欢迎人群握手。(Constantly extend your hand to welcome the crowd for handshakes.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Southwestern/1021035_23c9bd5b_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Southwestern/1021035_23c9bd5b_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>SC-GlowTTS</td>
+                        <td>What gave me the courage to take up the challenge was to lower the expectations that I'd
+                            have from these stories.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Southwestern/1021380_145b0a1e.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>这个故障在我们店内也出现过。(This fault has also occurred in our store.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Southwestern/1021380_145b0a1e_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Southwestern/1021380_145b0a1e_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="text-center mt-5 mb-4">Zhongyuan dialect to English</h3>
+            <table class="table text-center align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Method</th>
+                        <th scope="col">Text</th>
+                        <th scope="col">Reference</th>
+                        <th scope="col">Generated w/o TTA</th>
+                        <th scope="col">Generated w/ TTA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>F5-TTS</td>
+                        <td>Writing has become my daily habit, and I can remember to write even without my calendar
+                            sending me a reminder.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Zhongyuan/1000010_13bd31a2.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>难道是因为很懂中国消费者。(Is it because you understand Chinese consumers so well?)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Zhongyuan/1000010_13bd31a2_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Zhongyuan/1000010_13bd31a2_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>GenerSpeech</td>
+                        <td>Zero is a beautiful number. Not because it is round and cute but because what it signifies.
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Zhongyuan/1000093_a2416c0e.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>十月二十一日天猫双十一预售会场。(Tmall's Double Eleven pre-sale event on October 21st.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Zhongyuan/1000093_a2416c0e_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Zhongyuan/1000093_a2416c0e_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>StyleTTS</td>
+                        <td>The villagers would watch him from their windows, whispering to each other about the strange
+                            things they had heard.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Zhongyuan/1012784_19da9f28.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>店正常购买的进口车便算是大贸车的一种。(The imported cars purchased by the store are considered large trade
+                                vehicles.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Zhongyuan/1012784_19da9f28_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Zhongyuan/1012784_19da9f28_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                    <tr>
+                        <td>SC-GlowTTS</td>
+                        <td>The system first processes the input text, breaking it down into understandable chunks like
+                            sentences or words.</td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Zhongyuan/1012819_1d30020a.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p>林赛在十六岁时为了能开上卡车。(Lindsay wanted to drive a truck when she was sixteen years old.)</p>
+                        </td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Zhongyuan/1012819_1d30020a_notta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                        <td><audio controls style="width: 250px;">
+                                <source src="wavs/Zhongyuan/1012819_1d30020a_tta.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio></td>
+                    </tr>
+                </tbody>
+            </table>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
